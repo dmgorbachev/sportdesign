@@ -12,16 +12,30 @@
   <header class="header">
     <a href="/" class="logo">СпортДизайн</a>
     <nav class="nav">
-      <a href="#gallery" class="active">Работы</a>
+      <a href="#gallery">Работы</a>
       <a href="#about">О проекте</a>
     </nav>
   </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-image-wrap">
+        <img id="hero-image" src="" alt="">
+      </div>
+      <div class="hero-text">
+        <h1 id="hero-title"></h1>
+        <div class="hero-meta" id="hero-meta"></div>
+        <p id="hero-desc"></p>
+        <button class="hero-random" id="hero-random">Случайная работа</button>
+      </div>
+    </div>
+  </section>
 
   <section id="gallery" class="gallery-section">
     <div class="filters">
       <input type="text" id="search" class="filter-search" placeholder="Поиск">
       <button class="filter-clear hidden" id="clear-search">×</button>
-      <select id="filter-type"><option value="">Все типы</option></select>
+      <div class="filter-chips" id="filter-chips"></div>
       <select id="filter-sport"><option value="">Все виды спорта</option></select>
       <select id="filter-era"><option value="">Все эпохи</option></select>
     </div>
