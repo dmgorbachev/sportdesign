@@ -31,6 +31,19 @@ function showRandomHero() {
 function initChips() {
   const types = [...new Set(ARTWORKS.map(a => a.type))].sort();
   const container = document.getElementById('filter-chips');
+
+  // "Все" chip
+  const allChip = document.createElement('button');
+  allChip.className = 'chip active';
+  allChip.textContent = 'Все';
+  allChip.addEventListener('click', () => {
+    activeType = '';
+    container.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    allChip.classList.add('active');
+    applyFilters();
+  });
+  container.appendChild(allChip);
+
   types.forEach(t => {
     const chip = document.createElement('button');
     chip.className = 'chip';
@@ -39,6 +52,7 @@ function initChips() {
       if (activeType === t) {
         activeType = '';
         container.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        allChip.classList.add('active');
       } else {
         activeType = t;
         container.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.textContent === t));
