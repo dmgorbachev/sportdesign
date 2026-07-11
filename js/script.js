@@ -136,13 +136,13 @@ function initModal() {
     if (e.key === 'ArrowRight') navigateModal(1);
   });
 
-  // Touch swipe
-  const modalImg = document.getElementById('modal-image');
-  modalImg.addEventListener('touchstart', e => {
+  // Touch swipe on entire modal overlay
+  const modalOverlay = document.getElementById('modal');
+  modalOverlay.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
-  modalImg.addEventListener('touchend', e => {
+  modalOverlay.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchStartX;
     const dy = e.changedTouches[0].clientY - touchStartY;
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
