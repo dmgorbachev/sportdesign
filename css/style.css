@@ -83,7 +83,7 @@ body {
   gap: 24px;
 }
 
-.card { cursor: pointer; background: #f0f0f0; overflow: hidden; }
+.card { cursor: pointer; }
 .card img {
   width: 100%; display: block;
   border-radius: 4px;
