@@ -117,14 +117,75 @@ function renderGallery(works) {
 }
 
 // ===== Modal =====
+let modalWorks = [];
+let modalIndex = 0;
+let touchStartX = 0;
+let touchStartY = 0;
+
 function initModal() {
   document.getElementById('modal-close').addEventListener('click', closeModal);
   document.getElementById('modal').addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.getElementById('modal-prev').addEventListener('click', () => navigateModal(-1));
+  document.getElementById('modal-next').addEventListener('click', () => navigateModal(1));
+
+  // Keyboard arrows
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('modal').classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') navigateModal(-1);
+    if (e.key === 'ArrowRight') navigateModal(1);
+  });
+
+  // Touch swipe
+  const modalImg = document.getElementById('modal-image');
+  modalImg.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  modalImg.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      navigateModal(dx > 0 ? -1 : 1);
+    }
+  });
+}
+
+function navigateModal(dir) {
+  const newIdx = modalIndex + dir;
+  if (newIdx < 0 || newIdx >= modalWorks.length) return;
+  modalIndex = newIdx;
+  updateModalContent(modalWorks[modalIndex]);
 }
 
 function openModal(w) {
+  // Get currently visible artworks
+  const visible = getVisibleWorks();
+  modalWorks = visible;
+  modalIndex = visible.findIndex(v => v.id === w.id);
+  if (modalIndex === -1) modalIndex = 0;
+
+  updateModalContent(visible[modalIndex]);
   document.getElementById('modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function getVisibleWorks() {
+  const withImages = ARTWORKS.filter(w => w.image);
+  // Apply current filters
+  const sv = document.getElementById('search')?.value?.toLowerCase().trim() || '';
+  const sport = document.getElementById('filter-sport')?.value || '';
+  const era = document.getElementById('filter-era')?.value || '';
+  return withImages.filter(w => {
+    if (activeType && w.type !== activeType) return false;
+    if (sv && !(`${w.title} ${w.artist} ${w.sport} ${w.type} ${w.description}`.toLowerCase().includes(sv))) return false;
+    if (sport && w.sport !== sport) return false;
+    if (era && w.era !== era) return false;
+    return true;
+  });
+}
+
+function updateModalContent(w) {
   document.getElementById('modal-image').src = w.image || '';
   document.getElementById('modal-title').textContent = w.title + (w.titleAlt ? ' / ' + w.titleAlt : '');
   const meta = [];
@@ -137,7 +198,6 @@ function openModal(w) {
   document.getElementById('modal-desc').textContent = w.description || '';
   const src = document.getElementById('modal-source');
   if (w.source) { src.href = w.source; src.classList.remove('hidden'); } else { src.classList.add('hidden'); }
-  document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
