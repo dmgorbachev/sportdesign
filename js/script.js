@@ -70,6 +70,8 @@ function renderGallery(works) {
   empty.classList.add('hidden');
 
   works.forEach(w => {
+    // Skip works without images
+    if (!w.image) return;
     const card = document.createElement('div');
     card.className = 'card';
     const img = document.createElement('img');
