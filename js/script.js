@@ -137,14 +137,20 @@ function initModal() {
   });
 
   // Touch swipe on entire modal overlay
-  const modalOverlay = document.getElementById('modal');
-  modalOverlay.addEventListener('touchstart', e => {
+  const modalOverlayEl = document.getElementById('modal');
+  modalOverlayEl.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
-  modalOverlay.addEventListener('touchend', e => {
+  modalOverlayEl.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchStartX;
     const dy = e.changedTouches[0].clientY - touchStartY;
+    // Swipe down to close
+    if (dy > 80 && Math.abs(dy) > Math.abs(dx)) {
+      closeModal();
+      return;
+    }
+    // Swipe left/right to navigate
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
       navigateModal(dx > 0 ? -1 : 1);
     }
