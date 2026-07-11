@@ -4,106 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Спортивный дизайн России</title>
-  <meta name="description" content="Визуальный язык российского спорта — от Дейнеки до современной айдентики">
+  <meta name="description" content="Визуальный язык российского спорта — от конструктивизма до современной айдентики">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <header class="header">
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <span class="logo-icon">⚡</span>
-        <span class="logo-text">Спорт<span class="logo-accent">Дизайн</span></span>
-      </a>
-      <nav class="nav">
-        <a href="#gallery">Галерея</a>
-        <a href="#timeline">Таймлайн</a>
-        <a href="#about">О проекте</a>
-      </nav>
-    </div>
+    <a href="/" class="logo">СпортДизайн</a>
+    <nav class="nav">
+      <a href="#gallery">Работы</a>
+      <a href="#timeline">Таймлайн</a>
+      <a href="#about">О проекте</a>
+    </nav>
   </header>
-
-  <section class="hero">
-    <h1 class="hero-title">
-      Визуальный язык<br>российского спорта
-    </h1>
-    <p class="hero-subtitle">
-      От конструктивистских обложек Госиздата до айдентики современных клубов.
-      История спортивного дизайна в работах художников, графиков и бренд-дизайнеров.
-    </p>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num" id="stat-works">6</span><span class="stat-label">работ</span></div>
-      <div class="stat"><span class="stat-num" id="stat-artists">1</span><span class="stat-label">художник</span></div>
-      <div class="stat"><span class="stat-num">1900–</span><span class="stat-label">2026</span></div>
-    </div>
-  </section>
 
   <section id="gallery" class="gallery-section">
     <div class="filters">
-      <div class="filter-group">
-        <input type="text" id="search" class="filter-search" placeholder="Поиск по названию, художнику, виду спорта…">
-        <button class="filter-clear hidden" id="clear-search" aria-label="Очистить">×</button>
-      </div>
-      <div class="filter-group">
-        <select id="filter-era" class="filter-select">
-          <option value="">Все эпохи</option>
-        </select>
-        <select id="filter-artist" class="filter-select">
-          <option value="">Все художники</option>
-        </select>
-        <select id="filter-sport" class="filter-select">
-          <option value="">Все виды спорта</option>
-        </select>
-        <select id="filter-type" class="filter-select">
-          <option value="">Все типы</option>
-        </select>
-      </div>
+      <input type="text" id="search" class="filter-search" placeholder="Поиск…">
+      <button class="filter-clear hidden" id="clear-search">×</button>
+      <select id="filter-artist" class="filter-select"><option value="">Все художники</option></select>
+      <select id="filter-sport" class="filter-select"><option value="">Все виды спорта</option></select>
+      <select id="filter-era" class="filter-select"><option value="">Все эпохи</option></select>
     </div>
 
-    <div class="gallery-grid" id="gallery-grid">
-      <!-- Rendered by JS -->
-    </div>
-
-    <div class="gallery-empty hidden" id="gallery-empty">
-      <p>Ничего не найдено. Попробуйте изменить фильтры.</p>
-    </div>
+    <div class="gallery-grid" id="gallery-grid"></div>
+    <div class="gallery-empty hidden" id="gallery-empty">Ничего не найдено</div>
   </section>
 
   <section id="timeline" class="timeline-section">
     <h2 class="section-title">Таймлайн</h2>
-    <div class="timeline" id="timeline">
-      <!-- Rendered by JS -->
-    </div>
+    <div class="timeline" id="timeline"></div>
   </section>
 
   <section id="about" class="about-section">
     <h2 class="section-title">О проекте</h2>
-    <div class="about-grid">
-      <div class="about-card">
-        <h3>🎯 Миссия</h3>
-        <p>Собрать и систематизировать визуальное наследие российского спорта — от советской живописи до современных брендов.</p>
-      </div>
-      <div class="about-card">
-        <h3>📂 Источники</h3>
-        <p>Государственный Русский музей, Третьяковская галерея, открытые архивы и публикации.</p>
-      </div>
-      <div class="about-card">
-        <h3>✉️ Контакт</h3>
-        <p>Проект ведёт <a href="https://t.me/designgorbachev" target="_blank">Дмитрий Горбачев</a> — дизайн-директор и автор канала о дизайне.</p>
-      </div>
+    <div class="about-text">
+      <p>Собрание визуального наследия российского спорта — от советской живописи и конструктивистского плаката до современных брендов.</p>
+      <p>Источники: Государственный Русский музей, Третьяковская галерея, открытые архивы.</p>
+      <p>Проект ведёт <a href="https://t.me/designgorbachev" target="_blank">Дмитрий Горбачев</a>.</p>
     </div>
   </section>
 
   <footer class="footer">
-    <p>© 2026 СпортДизайн. Все изображения — из открытых источников.</p>
+    <p>© 2026 СпортДизайн. Изображения из открытых источников.</p>
   </footer>
 
   <div class="modal-overlay hidden" id="modal">
     <div class="modal">
       <button class="modal-close" id="modal-close">×</button>
-      <div class="modal-image-wrap">
-        <img id="modal-image" src="" alt="">
-      </div>
+      <img id="modal-image" src="" alt="">
       <div class="modal-info">
         <h2 id="modal-title"></h2>
         <p id="modal-meta"></p>
