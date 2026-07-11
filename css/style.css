@@ -159,7 +159,7 @@ body {
     background: rgba(0,0,0,0.5);
   }
   .modal {
-    max-width: 100%; height: calc(100vh - 42px); margin-top: 42px;
+    max-width: 100%; height: calc(100vh - 42px); margin: 42px 0 0 0;
     border-radius: 16px 16px 0 0;
     overflow-y: auto;
     animation: slideUp 0.3s ease;
@@ -173,7 +173,7 @@ body {
     background: rgba(255,255,255,0.9);
     border-radius: 50%; width: 32px; height: 32px; font-size: 20px;
   }
-  .modal-info { padding: 16px 24px 24px; }
+  .modal-info { padding: 20px 24px 32px; }
   .modal-info h2 { font-size: 18px; }
 
   /* Drag handle */
