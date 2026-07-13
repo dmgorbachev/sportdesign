@@ -74,37 +74,26 @@ function initChips() {
 
 // ===== Dropdown Filters =====
 function initFilters() {
-  const sports = [...new Set(ARTWORKS.map(a => a.sport))].sort();
   const eras = [...new Set(ARTWORKS.map(a => a.era))].sort();
-  populateSelect('filter-sport', sports);
   populateSelect('filter-era', eras);
-  document.getElementById('search').addEventListener('input', debounce(applyFilters, 200));
-  document.getElementById('clear-search').addEventListener('click', clearSearch);
-  document.getElementById('filter-sport').addEventListener('change', applyFilters);
   document.getElementById('filter-era').addEventListener('change', applyFilters);
 }
 
 function populateSelect(id, opts) {
   const sel = document.getElementById(id);
+  if (!sel) return;
   opts.forEach(o => { const el = document.createElement('option'); el.value = o; el.textContent = o; sel.appendChild(el); });
 }
 
 function applyFilters() {
-  const sv = document.getElementById('search').value.toLowerCase().trim();
-  document.getElementById('clear-search').classList.toggle('hidden', !sv);
-  const sport = document.getElementById('filter-sport').value;
-  const era = document.getElementById('filter-era').value;
+  const era = document.getElementById('filter-era')?.value || '';
   renderGallery(ARTWORKS.filter(w => {
     if (!w.image) return false;
     if (activeType && w.type !== activeType) return false;
-    if (sv && !(`${w.title} ${w.artist} ${w.sport} ${w.type} ${w.description}`.toLowerCase().includes(sv))) return false;
-    if (sport && w.sport !== sport) return false;
     if (era && w.era !== era) return false;
     return true;
   }));
 }
-
-function clearSearch() { document.getElementById('search').value = ''; applyFilters(); }
 
 // ===== Gallery =====
 function renderGallery(works) {
@@ -206,13 +195,9 @@ function openModal(w) {
 
 function getVisibleWorks() {
   const withImages = ARTWORKS.filter(w => w.image);
-  const sv = document.getElementById('search')?.value?.toLowerCase().trim() || '';
-  const sport = document.getElementById('filter-sport')?.value || '';
   const era = document.getElementById('filter-era')?.value || '';
   return withImages.filter(w => {
     if (activeType && w.type !== activeType) return false;
-    if (sv && !(`${w.title} ${w.artist} ${w.sport} ${w.type} ${w.description}`.toLowerCase().includes(sv))) return false;
-    if (sport && w.sport !== sport) return false;
     if (era && w.era !== era) return false;
     return true;
   });
