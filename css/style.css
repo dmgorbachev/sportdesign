@@ -184,9 +184,11 @@ body {
 }
 @media (max-width: 768px) {
   .splash { padding: 24px 20px; }
+  .splash-bottom { flex-direction: column; gap: 12px; }
+  .splash-stats { order: -1; }
   .splash-center img { max-width: 90%; max-height: 40vh; }
-  .splash-left { max-width: 140px; font-size: 11px; }
-  .splash-right { font-size: 10px; }
+  .splash-left { max-width: none; font-size: 14px; text-align: center; }
+  .splash-right { font-size: 14px; justify-content: center; }
   .splash-stats { gap: 20px; }
   .splash-stats .stat-num { font-size: 18px; }
   .splash-arrow { display: none; }
