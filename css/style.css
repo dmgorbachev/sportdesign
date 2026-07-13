@@ -76,6 +76,18 @@ body {
   max-width: 440px;
 }
 .hero-actions { display: flex; gap: 12px; }
+
+.hero-stats {
+  display: flex; gap: 32px; margin: 8px 0;
+}
+.hero-stats .stat { text-align: left; }
+.hero-stats .stat-num { font-size: 28px; font-weight: 700; line-height: 1; }
+.hero-stats .stat-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-dim); margin-top: 4px;
+}
+
+.hero-actions { display: flex; gap: 12px; }
 .hero-random {
   background: var(--text); color: #fff; border: none;
   padding: 12px 24px; font-size: 12px; font-family: var(--font);

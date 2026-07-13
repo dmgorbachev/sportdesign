@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showRandomHero();
   renderGallery(ARTWORKS);
   renderTimeline(ARTWORKS);
+  renderStats();
   initModal();
   document.getElementById('hero-random').addEventListener('click', showRandomHero);
   document.getElementById('hero-open-gallery').addEventListener('click', () => {
@@ -15,6 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== State =====
 let activeType = '';
+
+// ===== Stats =====
+function renderStats() {
+  const withImages = ARTWORKS.filter(w => w.image);
+  const artists = new Set(withImages.map(w => w.artist).filter(Boolean));
+  const types = new Set(withImages.map(w => w.type));
+  const years = withImages.map(w => w.year).filter(Boolean);
+  const minYear = years.length ? Math.min(...years) : '—';
+  const maxYear = years.length ? Math.max(...years) : '—';
+
+  document.getElementById('hero-stats').innerHTML = `
+    <div class="stat"><div class="stat-num">${withImages.length}</div><div class="stat-label">Работ</div></div>
+    <div class="stat"><div class="stat-num">${artists.size}</div><div class="stat-label">Художников</div></div>
+    <div class="stat"><div class="stat-num">${types.size}</div><div class="stat-label">Типов</div></div>
+    <div class="stat"><div class="stat-num">${minYear}–${maxYear}</div><div class="stat-label">Годы</div></div>
+  `;
+}
 
 // ===== Hero =====
 function showRandomHero() {
