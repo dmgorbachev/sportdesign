@@ -1,4 +1,31 @@
 // SportDesign — Gallery Engine
+// ===== Preloader =====
+(function() {
+  const fill = document.getElementById('preloader-fill');
+  const pct = document.getElementById('preloader-pct');
+  const loader = document.getElementById('preloader');
+  let progress = 0;
+  
+  function tick() {
+    // Accelerate: fast 0-60, slower 60-90, crawl 90-100
+    if (progress < 60) progress += 3 + Math.random() * 5;
+    else if (progress < 90) progress += 1 + Math.random() * 2;
+    else if (progress < 100) progress += 0.3;
+    if (progress > 100) progress = 100;
+    
+    fill.style.width = progress + '%';
+    pct.textContent = Math.round(progress) + '%';
+    
+    if (progress < 100) {
+      setTimeout(tick, 40 + Math.random() * 60);
+    } else {
+      setTimeout(() => loader.classList.add('hide'), 200);
+      setTimeout(() => loader.remove(), 600);
+    }
+  }
+  
+  tick();
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
   initChips();
