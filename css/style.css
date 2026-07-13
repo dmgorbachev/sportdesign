@@ -50,10 +50,8 @@ body {
   display: flex; align-items: center; justify-content: space-between;
   padding: 28px 36px;
 }
-.logo {
-  font-size: 18px; font-weight: 600; letter-spacing: -0.01em;
-  text-decoration: none; color: var(--text);
-}
+.logo { text-decoration: none; }
+.logo-img { height: 24px; width: auto; display: block; }
 .nav { display: flex; gap: 24px; }
 .nav a {
   color: var(--text-dim); text-decoration: none;
