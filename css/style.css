@@ -194,8 +194,8 @@ body {
   .modal-wrap { gap: 0; }
   .modal { max-width: 100%; height: calc(100vh - 42px); margin: 42px 0 0 0; border-radius: 16px 16px 0 0; overflow-y: auto; animation: slideUp 0.3s ease; }
   .modal img { max-height: 50vh; object-fit: contain; border-radius: 16px 16px 0 0; }
-  .modal-close { top: 8px; right: 8px; background: rgba(255,255,255,0.9); border-radius: 50%; width: 32px; height: 32px; font-size: 20px; }
-  .modal-info { padding: 20px 24px 32px; }
+  .modal-close { display: none; }
+  .modal-info { padding: 0 24px 24px; }
   .modal-info h2 { font-size: 18px; }
   .modal-nav { display: none; }
   .modal::before { content: ''; display: block; width: 36px; height: 4px; background: #ddd; border-radius: 2px; margin: 10px auto 4px; }
