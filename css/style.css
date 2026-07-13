@@ -19,21 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== Preloader ===== */
-.preloader {
-  position: fixed; inset: 0; z-index: 999;
-  background: #fff;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 24px;
-  transition: opacity 0.4s;
-}
-.preloader.hide { opacity: 0; pointer-events: none; }
-.preloader-text { font-size: 16px; font-weight: 500; color: #333; letter-spacing: 0.02em; text-align: center; }
-.preloader-bar { width: 200px; height: 2px; background: #eee; overflow: hidden; }
-.preloader-fill { height: 100%; width: 0%; background: #333; transition: width 0.1s linear; }
-.preloader-pct { font-size: 13px; color: #333; font-family: var(--font); }
-
-/* ===== Header ===== */
+/* ===== Код ===== */
 .header {
   max-width: var(--max-width); margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
@@ -104,7 +90,6 @@ body {
 .hero-image-wrap {
   position: relative;
   aspect-ratio: 4/3;
-  background: #f0f0f0;
   border-radius: 4px;
 }
 .hero-image-wrap img {
