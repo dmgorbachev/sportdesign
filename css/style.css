@@ -184,8 +184,8 @@ body {
 }
 @media (max-width: 768px) {
   .splash { padding: 24px 20px; }
-  .splash-bottom { flex-direction: column; gap: 12px; }
-  .splash-stats { order: -1; }
+  .splash-bottom { flex-wrap: wrap; gap: 12px; }
+  .splash-stats { order: -1; width: 100%; justify-content: center; }
   .splash-center img { max-width: 90%; max-height: 40vh; }
   .splash-left { max-width: none; font-size: 14px; text-align: center; }
   .splash-right { font-size: 14px; justify-content: center; }
