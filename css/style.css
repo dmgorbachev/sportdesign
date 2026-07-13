@@ -191,6 +191,7 @@ body {
   .splash-right { font-size: 10px; }
   .splash-stats { gap: 20px; }
   .splash-stats .stat-num { font-size: 18px; }
+  .splash-arrow { display: none; }
   .gallery-section, .timeline-section, .about-section, .footer { padding-left: 20px; padding-right: 20px; }
   .gallery-grid { columns: 2; column-gap: 16px; }
   .card { margin-bottom: 16px; }
