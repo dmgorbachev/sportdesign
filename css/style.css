@@ -136,7 +136,7 @@ body {
 .tl-item-year { font-size: 11px; color: var(--text-dim); }
 
 /* ===== About ===== */
-.about-section { padding: 80px 48px; border-top: 1px solid var(--border); }
+.about-section { padding: 80px 48px; }
 .about-text { max-width: 560px; font-size: 13px; color: var(--text-dim); line-height: 1.8; }
 .about-text p { margin-bottom: 10px; }
 .about-text a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
