@@ -1,21 +1,18 @@
-// SportDesign — Gallery Engine
+// КОДЕКС — Gallery Engine
 
 document.addEventListener('DOMContentLoaded', () => {
   initChips();
   initFilters();
-  showRandomHero();
+  initSplash();
   renderGallery(ARTWORKS);
   renderTimeline(ARTWORKS);
   renderStats();
   initModal();
-  document.getElementById('hero-random').addEventListener('click', showRandomHero);
-  document.getElementById('hero-open-gallery').addEventListener('click', () => {
-    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-  });
 });
 
 // ===== State =====
 let activeType = '';
+let currentSplashWork = null;
 
 // ===== Stats =====
 function renderStats() {
@@ -26,7 +23,7 @@ function renderStats() {
   const minYear = years.length ? Math.min(...years) : '—';
   const maxYear = years.length ? Math.max(...years) : '—';
 
-  document.getElementById('hero-stats').innerHTML = `
+  document.getElementById('splash-stats').innerHTML = `
     <div class="stat"><div class="stat-num">${withImages.length}</div><div class="stat-label">Работ</div></div>
     <div class="stat"><div class="stat-num">${artists.size}</div><div class="stat-label">Художников</div></div>
     <div class="stat"><div class="stat-num">${types.size}</div><div class="stat-label">Типов</div></div>
@@ -34,51 +31,41 @@ function renderStats() {
   `;
 }
 
-// ===== Hero =====
-function showRandomHero() {
+// ===== Splash =====
+function initSplash() {
   const withImages = ARTWORKS.filter(w => w.image);
   if (!withImages.length) return;
-  const w = withImages[Math.floor(Math.random() * withImages.length)];
-  document.getElementById('hero-image').src = w.image;
-  document.getElementById('hero-title').textContent = w.title;
-  const meta = [];
-  if (w.artist) meta.push(w.artist);
-  if (w.year) meta.push(w.year);
-  document.getElementById('hero-meta').innerHTML = meta.join(' · ') +
-    ' <span class="chip">' + w.type + '</span> <span class="chip">' + w.sport + '</span>';
-  document.getElementById('hero-desc').textContent = w.description || '';
+  currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
+  document.getElementById('splash-image').src = currentSplashWork.image;
+
+  // Click on image → scroll to gallery + open modal
+  document.getElementById('splash-image').addEventListener('click', () => {
+    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => openModal(currentSplashWork), 600);
+  });
+
+  // Arrow button → scroll to gallery
+  document.getElementById('splash-arrow').addEventListener('click', () => {
+    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+  });
 }
 
 // ===== Filter Chips =====
 function initChips() {
   const types = [...new Set(ARTWORKS.map(a => a.type))].sort();
   const container = document.getElementById('filter-chips');
-
-  // "Все" chip
   const allChip = document.createElement('button');
-  allChip.className = 'chip active';
-  allChip.textContent = 'Все';
+  allChip.className = 'chip active'; allChip.textContent = 'Все';
   allChip.addEventListener('click', () => {
-    activeType = '';
-    container.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-    allChip.classList.add('active');
-    applyFilters();
+    activeType = ''; container.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    allChip.classList.add('active'); applyFilters();
   });
   container.appendChild(allChip);
-
   types.forEach(t => {
-    const chip = document.createElement('button');
-    chip.className = 'chip';
-    chip.textContent = t;
+    const chip = document.createElement('button'); chip.className = 'chip'; chip.textContent = t;
     chip.addEventListener('click', () => {
-      if (activeType === t) {
-        activeType = '';
-        container.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-        allChip.classList.add('active');
-      } else {
-        activeType = t;
-        container.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.textContent === t));
-      }
+      if (activeType === t) { activeType = ''; container.querySelectorAll('.chip').forEach(c => c.classList.remove('active')); allChip.classList.add('active'); }
+      else { activeType = t; container.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.textContent === t)); }
       applyFilters();
     });
     container.appendChild(chip);
@@ -128,10 +115,8 @@ function renderGallery(works) {
   empty.classList.add('hidden');
   works.forEach(w => {
     if (!w.image) return;
-    const card = document.createElement('div');
-    card.className = 'card';
-    const img = document.createElement('img');
-    img.src = w.image; img.alt = w.title; img.loading = 'lazy';
+    const card = document.createElement('div'); card.className = 'card';
+    const img = document.createElement('img'); img.src = w.image; img.alt = w.title; img.loading = 'lazy';
     card.appendChild(img);
     card.addEventListener('click', () => openModal(w));
     grid.appendChild(card);
@@ -148,19 +133,12 @@ let touchStartY = 0;
 function renderTimeline(works) {
   const tl = document.getElementById('timeline');
   const grouped = {};
-  works.forEach(w => {
-    if (!w.era) return;
-    if (!grouped[w.era]) grouped[w.era] = [];
-    grouped[w.era].push(w);
-  });
-
+  works.forEach(w => { if (!w.era) return; if (!grouped[w.era]) grouped[w.era] = []; grouped[w.era].push(w); });
   const order = ['1920–1940', '1940–1960', '1960–1980', '1980–2000', 'Без даты'];
   tl.innerHTML = '';
-
   order.forEach(era => {
     if (!grouped[era]) return;
-    const eraDiv = document.createElement('div');
-    eraDiv.className = 'tl-era';
+    const eraDiv = document.createElement('div'); eraDiv.className = 'tl-era';
     eraDiv.innerHTML = `
       <div class="tl-era-label">${era}</div>
       <div class="tl-era-title">${getEraTitle(era)}</div>
@@ -168,17 +146,12 @@ function renderTimeline(works) {
         ${grouped[era].sort((a,b) => (a.year||9999)-(b.year||9999)).map(w => `
           <div class="tl-item" data-id="${w.id}">
             <img class="tl-item-thumb" src="${w.image}" alt="${w.title}" loading="lazy" onerror="this.style.display='none'">
-            <div class="tl-item-info">
-              <div class="tl-item-title">${w.title}</div>
-              <div class="tl-item-year">${w.artist || ''}${w.artist && w.year ? ', ' : ''}${w.year || ''}</div>
-            </div>
+            <div class="tl-item-info"><div class="tl-item-title">${w.title}</div><div class="tl-item-year">${w.artist||''}${w.artist&&w.year?', ':''}${w.year||''}</div></div>
           </div>
         `).join('')}
-      </div>
-    `;
+      </div>`;
     tl.appendChild(eraDiv);
   });
-
   tl.querySelectorAll('.tl-item').forEach(el => {
     el.addEventListener('click', () => {
       const w = works.find(x => x.id === parseInt(el.dataset.id));
@@ -188,49 +161,29 @@ function renderTimeline(works) {
 }
 
 function getEraTitle(era) {
-  const map = {
-    '1920–1940': 'Авангард и конструктивизм',
-    '1940–1960': 'Соцреализм и монументализм',
-    '1960–1980': 'Оттепель и новый визуальный язык',
-    '1980–2000': 'Поздний советский период',
-  };
+  const map = { '1920–1940': 'Авангард и конструктивизм', '1940–1960': 'Соцреализм и монументализм', '1960–1980': 'Оттепель и новый визуальный язык', '1980–2000': 'Поздний советский период' };
   return map[era] || '';
 }
 
-// ===== Modal (continued) =====
-
+// ===== Modal =====
 function initModal() {
   document.getElementById('modal-close').addEventListener('click', closeModal);
   document.getElementById('modal').addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
   document.getElementById('modal-prev').addEventListener('click', () => navigateModal(-1));
   document.getElementById('modal-next').addEventListener('click', () => navigateModal(1));
-
-  // Keyboard arrows
   document.addEventListener('keydown', e => {
     if (document.getElementById('modal').classList.contains('hidden')) return;
     if (e.key === 'Escape') closeModal();
     if (e.key === 'ArrowLeft') navigateModal(-1);
     if (e.key === 'ArrowRight') navigateModal(1);
   });
-
-  // Touch swipe on entire modal overlay
   const modalOverlayEl = document.getElementById('modal');
-  modalOverlayEl.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
+  modalOverlayEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }, { passive: true });
   modalOverlayEl.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchStartX;
     const dy = e.changedTouches[0].clientY - touchStartY;
-    // Swipe down to close
-    if (dy > 80 && Math.abs(dy) > Math.abs(dx)) {
-      closeModal();
-      return;
-    }
-    // Swipe left/right to navigate
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-      navigateModal(dx > 0 ? -1 : 1);
-    }
+    if (dy > 80 && Math.abs(dy) > Math.abs(dx)) { closeModal(); return; }
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) navigateModal(dx > 0 ? -1 : 1);
   });
 }
 
@@ -242,12 +195,10 @@ function navigateModal(dir) {
 }
 
 function openModal(w) {
-  // Get currently visible artworks
   const visible = getVisibleWorks();
   modalWorks = visible;
   modalIndex = visible.findIndex(v => v.id === w.id);
   if (modalIndex === -1) modalIndex = 0;
-
   updateModalContent(visible[modalIndex]);
   document.getElementById('modal').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
@@ -255,7 +206,6 @@ function openModal(w) {
 
 function getVisibleWorks() {
   const withImages = ARTWORKS.filter(w => w.image);
-  // Apply current filters
   const sv = document.getElementById('search')?.value?.toLowerCase().trim() || '';
   const sport = document.getElementById('filter-sport')?.value || '';
   const era = document.getElementById('filter-era')?.value || '';
@@ -276,16 +226,11 @@ function updateModalContent(w) {
   if (w.year) meta.push(w.year);
   if (w.technique) meta.push(w.technique);
   if (w.museum) meta.push(w.museum);
-  document.getElementById('modal-meta').innerHTML = meta.join(' · ') +
-    ' <span class="chip">' + w.type + '</span> <span class="chip">' + w.sport + '</span>';
+  document.getElementById('modal-meta').innerHTML = meta.join(' · ') + ' <span class="chip">' + w.type + '</span> <span class="chip">' + w.sport + '</span>';
   document.getElementById('modal-desc').textContent = w.description || '';
   const src = document.getElementById('modal-source');
   if (w.source) { src.href = w.source; src.classList.remove('hidden'); } else { src.classList.add('hidden'); }
 }
 
-function closeModal() {
-  document.getElementById('modal').classList.add('hidden');
-  document.body.style.overflow = '';
-}
-
+function closeModal() { document.getElementById('modal').classList.add('hidden'); document.body.style.overflow = ''; }
 function debounce(fn, ms) { let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); }; }

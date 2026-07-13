@@ -3,39 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Код — визуальный язык российского спорта</title>
-  <meta name="description" content="Код — визуальный язык российского спорта. От конструктивизма до современной айдентики.">
-  <link rel="stylesheet" href="css/style.css?v=20">
+  <title>Кодекс — визуальный код российского спорта</title>
+  <meta name="description" content="Визуальный код российского спорта. От конструктивизма до современной айдентики.">
+  <link rel="stylesheet" href="css/style.css?v=21">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Unbounded:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header class="header">
-    <a href="/" class="logo">КОДЕКС</a>
-    <nav class="nav">
-      <a href="#gallery">Работы</a>
-      <a href="#about">О проекте</a>
-    </nav>
-  </header>
-
-  <section class="hero" id="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <h1 id="hero-title"></h1>
-        <div class="hero-meta" id="hero-meta"></div>
-        <p class="hero-desc" id="hero-desc"></p>
-        <div class="hero-actions">
-          <button class="hero-random" id="hero-random">Случайная работа</button>
-          <button class="hero-open" id="hero-open-gallery">Смотреть все</button>
-        </div>
-      </div>
-      <div class="hero-image-wrap">
-        <img id="hero-image" src="" alt="">
+  <section class="splash" id="splash">
+    <div class="splash-top">
+      <div class="splash-logo">КОДЕКС</div>
+    </div>
+    <div class="splash-center">
+      <img id="splash-image" src="" alt="">
+    </div>
+    <div class="splash-bottom">
+      <div class="splash-left">Визуальный код<br>российского спорта</div>
+      <div class="splash-stats" id="splash-stats"></div>
+      <div class="splash-arrow" id="splash-arrow">↓</div>
+      <div class="splash-right">
+        <span>Проект ведёт</span>
+        <span class="splash-author">Дмитрий Горбачев</span>
+        <img src="images/avatar.jpg" alt="" class="splash-avatar" onerror="this.style.display='none'">
       </div>
     </div>
   </section>
-
-  <div class="hero-stats" id="hero-stats"></div>
 
   <section id="gallery" class="gallery-section">
     <div class="filters">
@@ -65,7 +57,7 @@
   </section>
 
   <footer class="footer">
-    <p>© 2026 Код. Изображения из открытых источников.</p>
+    <p>© 2026 Кодекс. Изображения из открытых источников.</p>
   </footer>
 
   <div class="modal-overlay hidden" id="modal">
@@ -85,7 +77,7 @@
     </div>
   </div>
 
-  <script src="data/artworks.js?v=16"></script>
-  <script src="js/script.js?v=16"></script>
+  <script src="data/artworks.js?v=21"></script>
+  <script src="js/script.js?v=21"></script>
 </body>
 </html>
