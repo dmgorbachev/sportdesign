@@ -187,7 +187,7 @@ body {
   .splash-bottom { flex-wrap: wrap; gap: 12px; }
   .splash-stats { order: -1; width: 100%; justify-content: center; }
   .splash-center img { max-width: 90%; max-height: 40vh; }
-  .splash-left { max-width: none; font-size: 14px; text-align: center; }
+  .splash-left { max-width: none; font-size: 14px; }
   .splash-right { font-size: 14px; justify-content: center; }
   .splash-stats { gap: 20px; }
   .splash-stats .stat-num { font-size: 18px; }
