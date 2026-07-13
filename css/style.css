@@ -49,14 +49,18 @@ body {
   max-width: 320px; padding-bottom: 48px;
 }
 .splash-right {
-  text-align: right; font-size: 24px; color: var(--text-dim);
   display: flex; align-items: center; gap: 12px; padding-bottom: 48px;
-  flex-direction: row;
+  font-size: 24px;
+}
+.splash-right-text {
+  display: flex; flex-direction: column;
+  text-align: right; color: var(--text-dim);
 }
 .splash-author { color: var(--text); font-weight: 500; }
+.splash-author-link { text-decoration: none; color: inherit; }
 .splash-avatar {
   width: 52px; height: 52px; border-radius: 50%; object-fit: cover;
-  flex-shrink: 0;
+  flex-shrink: 0; cursor: pointer;
 }
 
 /* Stats in splash */
