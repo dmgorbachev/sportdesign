@@ -6,7 +6,7 @@
   --text-dim: #999;
   --border: #eee;
   --max-width: 1480px;
-  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -96,12 +96,13 @@ body {
 .hero-image-wrap {
   position: relative;
   aspect-ratio: 4/3;
-  background: #fff;
+  background: #fafafa;
   border-radius: 4px;
 }
 .hero-image-wrap img {
   width: 100%; height: 100%; object-fit: contain;
-  background: #fff;
+  background: #fafafa;
+  border-radius: 4px;
 }
 
 /* ===== Gallery ===== */
