@@ -88,7 +88,7 @@ body {
 .splash-arrow:hover { border-color: var(--text); color: var(--text); }
 
 /* ===== Filters ===== */
-.gallery-section { max-width: var(--max-width); margin: 0 auto; padding: 0 48px 60px; }
+.gallery-section { max-width: var(--max-width); margin: 0 auto; padding: 80px 48px; }
 
 .filters {
   display: flex; gap: 10px; padding: 0 0 36px;
@@ -123,7 +123,7 @@ body {
 /* ===== Timeline ===== */
 .timeline-section {
   max-width: var(--max-width); margin: 0 auto;
-  padding: 80px 48px 60px; border-top: 1px solid var(--border);
+  padding: 80px 48px; border-top: 1px solid var(--border);
 }
 .timeline { position: relative; }
 .timeline::before { content: ''; position: absolute; left: 4px; top: 0; bottom: 0; width: 1px; background: var(--border); }
@@ -140,7 +140,7 @@ body {
 .tl-item-year { font-size: 11px; color: var(--text-dim); }
 
 /* ===== About ===== */
-.about-section { max-width: var(--max-width); margin: 0 auto; padding: 80px 48px 100px; border-top: 1px solid var(--border); }
+.about-section { max-width: var(--max-width); margin: 0 auto; padding: 80px 48px; border-top: 1px solid var(--border); }
 .about-text { max-width: 560px; font-size: 13px; color: var(--text-dim); line-height: 1.8; }
 .about-text p { margin-bottom: 10px; }
 .about-text a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
