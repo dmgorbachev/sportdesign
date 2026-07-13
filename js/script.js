@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFilters();
   showRandomHero();
   renderGallery(ARTWORKS);
+  renderTimeline(ARTWORKS);
   initModal();
   document.getElementById('hero-random').addEventListener('click', showRandomHero);
   document.getElementById('hero-open-gallery').addEventListener('click', () => {
@@ -124,6 +125,61 @@ let modalWorks = [];
 let modalIndex = 0;
 let touchStartX = 0;
 let touchStartY = 0;
+
+// ===== Timeline =====
+function renderTimeline(works) {
+  const tl = document.getElementById('timeline');
+  const grouped = {};
+  works.forEach(w => {
+    if (!w.era) return;
+    if (!grouped[w.era]) grouped[w.era] = [];
+    grouped[w.era].push(w);
+  });
+
+  const order = ['1920–1940', '1940–1960', '1960–1980', '1980–2000', 'Без даты'];
+  tl.innerHTML = '';
+
+  order.forEach(era => {
+    if (!grouped[era]) return;
+    const eraDiv = document.createElement('div');
+    eraDiv.className = 'tl-era';
+    eraDiv.innerHTML = `
+      <div class="tl-era-label">${era}</div>
+      <div class="tl-era-title">${getEraTitle(era)}</div>
+      <div class="tl-era-items">
+        ${grouped[era].sort((a,b) => (a.year||9999)-(b.year||9999)).map(w => `
+          <div class="tl-item" data-id="${w.id}">
+            <img class="tl-item-thumb" src="${w.image}" alt="${w.title}" loading="lazy" onerror="this.style.display='none'">
+            <div class="tl-item-info">
+              <div class="tl-item-title">${w.title}</div>
+              <div class="tl-item-year">${w.artist || ''}${w.artist && w.year ? ', ' : ''}${w.year || ''}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    tl.appendChild(eraDiv);
+  });
+
+  tl.querySelectorAll('.tl-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const w = works.find(x => x.id === parseInt(el.dataset.id));
+      if (w) openModal(w);
+    });
+  });
+}
+
+function getEraTitle(era) {
+  const map = {
+    '1920–1940': 'Авангард и конструктивизм',
+    '1940–1960': 'Соцреализм и монументализм',
+    '1960–1980': 'Оттепель и новый визуальный язык',
+    '1980–2000': 'Поздний советский период',
+  };
+  return map[era] || '';
+}
+
+// ===== Modal (continued) =====
 
 function initModal() {
   document.getElementById('modal-close').addEventListener('click', closeModal);

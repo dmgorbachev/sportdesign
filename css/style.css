@@ -216,10 +216,55 @@ body {
 
 .hidden { display: none !important; }
 
+/* ===== Timeline ===== */
+.timeline-section {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: 80px 48px 60px;
+  border-top: 1px solid var(--border);
+}
+.timeline { position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 4px; top: 0; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.tl-era { margin-bottom: 56px; padding-left: 32px; position: relative; }
+.tl-era::before {
+  content: ''; position: absolute; left: -3px; top: 4px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #fff; border: 1px solid var(--text);
+}
+.tl-era-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text-dim); margin-bottom: 4px;
+}
+.tl-era-title { font-size: 16px; font-weight: 600; margin-bottom: 20px; }
+.tl-era-items {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 8px;
+}
+.tl-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0; cursor: pointer; transition: opacity 0.2s;
+}
+.tl-item:hover { opacity: 0.7; }
+.tl-item-thumb {
+  width: 44px; height: 44px; object-fit: cover; background: #f0f0f0;
+}
+.tl-item-info { flex: 1; min-width: 0; }
+.tl-item-title { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl-item-year { font-size: 11px; color: var(--text-dim); }
+
 /* ===== About ===== */
-.about-section { max-width: 560px; padding: 80px 48px 100px; }
-.about-section .section-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.06em; }
-.about-text { font-size: 13px; color: var(--text-dim); line-height: 1.8; }
+.about-section {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: 80px 48px 100px;
+  border-top: 1px solid var(--border);
+}
+.about-text { max-width: 560px; font-size: 13px; color: var(--text-dim); line-height: 1.8; }
+.section-title {
+  font-size: 14px; font-weight: 600; color: var(--text);
+  margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.06em;
+}
 .about-text p { margin-bottom: 10px; }
 .about-text a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
 
