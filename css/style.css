@@ -71,6 +71,14 @@ body {
   flex-shrink: 0; cursor: pointer;
 }
 
+/* ===== Splash Artwork (replaces stats) ===== */
+.splash-artwork {
+  text-align: center; font-family: var(--font);
+}
+.splash-artwork span { display: block; }
+#splash-artwork-title { font-size: 16px; font-weight: 600; color: #000; }
+#splash-artwork-author { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+
 /* Stats in splash */
 .splash-stats {
   display: flex; gap: 32px; text-align: center;
@@ -139,6 +147,17 @@ body {
 .about-section { padding: 80px 48px; }
 .about-text { max-width: 560px; font-size: 20px; color: #000; line-height: 1.6; text-align: center; margin: 0 auto; }
 .about-text p { margin-bottom: 10px; }
+.about-stats {
+  display: flex; gap: 32px; justify-content: center; margin-top: 24px;
+}
+.about-stats .stat { text-align: center; }
+.about-stats .stat-num {
+  font-size: 24px; font-weight: 700;
+  font-family: 'Unbounded', sans-serif; color: #000;
+}
+.about-stats .stat-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim);
+}
 .about-text a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
 .section-title { font-size: 20px; font-weight: 600; color: #000; margin-bottom: 32px; text-transform: uppercase; letter-spacing: 0.06em; }
 

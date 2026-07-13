@@ -23,7 +23,7 @@ function renderStats() {
   const minYear = years.length ? Math.min(...years) : '—';
   const maxYear = years.length ? Math.max(...years) : '—';
 
-  document.getElementById('splash-stats').innerHTML = `
+  document.getElementById('about-stats').innerHTML = `
     <div class="stat"><div class="stat-num">${withImages.length}</div><div class="stat-label">Работ</div></div>
     <div class="stat"><div class="stat-num">${artists.size}</div><div class="stat-label">Художников</div></div>
     <div class="stat"><div class="stat-num">${types.size}</div><div class="stat-label">Типов</div></div>
@@ -37,6 +37,8 @@ function initSplash() {
   if (!withImages.length) return;
   currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
   document.getElementById('splash-image').src = currentSplashWork.image;
+  document.getElementById('splash-artwork-title').textContent = currentSplashWork.title;
+  document.getElementById('splash-artwork-author').textContent = currentSplashWork.artist || '';
 
   // Click on image → scroll to about section + open modal
   document.getElementById('splash-image').addEventListener('click', () => {
