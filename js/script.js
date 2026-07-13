@@ -38,15 +38,15 @@ function initSplash() {
   currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
   document.getElementById('splash-image').src = currentSplashWork.image;
 
-  // Click on image → scroll to gallery + open modal
+  // Click on image → scroll to about section + open modal
   document.getElementById('splash-image').addEventListener('click', () => {
-    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('about-top').scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => openModal(currentSplashWork), 600);
   });
 
-  // Arrow button → scroll to gallery
+  // Arrow button → scroll to about section
   document.getElementById('splash-arrow').addEventListener('click', () => {
-    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('about-top').scrollIntoView({ behavior: 'smooth' });
   });
 }
 
