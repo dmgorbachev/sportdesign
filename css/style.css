@@ -73,7 +73,7 @@ body {
 
 /* ===== Splash Artwork (replaces stats) ===== */
 .splash-artwork {
-  text-align: center; font-family: var(--font);
+  text-align: center; padding: 12px 0;
 }
 .splash-artwork span { display: block; }
 #splash-artwork-title { font-size: 16px; font-weight: 600; color: #000; }
