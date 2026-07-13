@@ -210,14 +210,15 @@ body {
 /* ===== Modal Nav Arrows ===== */
 .modal-nav {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
-  background: #fff; border: none; color: var(--text);
-  font-size: 32px; cursor: pointer; opacity: 0.4;
-  width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.9); border: none; color: var(--text);
+  font-size: 36px; cursor: pointer; opacity: 0.5;
+  width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
   transition: opacity 0.2s;
 }
-.modal-nav:hover { opacity: 0.8; }
-.modal-prev { left: -52px; }
-.modal-next { right: -52px; }
+.modal-nav:hover { opacity: 0.9; }
+.modal-prev { left: 24px; }
+.modal-next { right: 24px; }
 @media (max-width: 900px) {
   .modal-nav { display: none; }
 }
