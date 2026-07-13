@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFilters();
   initSplash();
   renderGallery(ARTWORKS);
-  renderTimeline(ARTWORKS);
+  renderTimeline(ARTWORKS.filter(w => w.image));
   renderStats();
   initModal();
 });
