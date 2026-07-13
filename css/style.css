@@ -42,16 +42,24 @@ body {
 }
 .splash-bottom {
   display: flex; align-items: center; justify-content: space-between;
-  padding-bottom: 16px;
+  padding-bottom: 16px; position: relative;
 }
 .splash-left {
   font-size: 24px; line-height: 1.3; color: #000;
-  max-width: 320px; padding-bottom: 48px;
+  max-width: 320px;
 }
 .splash-right {
-  display: flex; align-items: center; gap: 12px; padding-bottom: 48px;
+  display: flex; align-items: center; gap: 12px;
   font-size: 24px;
 }
+.splash-arrow {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border); border-radius: 50%;
+  font-size: 18px; color: var(--text-dim); cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.splash-arrow:hover { border-color: var(--text); color: var(--text); }
 .splash-right-text {
   display: flex; flex-direction: column;
   text-align: right; color: var(--text-dim);
@@ -66,7 +74,8 @@ body {
 /* Stats in splash */
 .splash-stats {
   display: flex; gap: 32px; text-align: center;
-  justify-content: center; padding: 32px 0;
+  justify-content: center; padding: 24px 0;
+  width: 100%;
 }
 .splash-stats .stat-num {
   font-size: 24px; font-weight: 700;
@@ -76,16 +85,6 @@ body {
   font-size: 10px; text-transform: uppercase;
   letter-spacing: 0.06em; color: var(--text-dim);
 }
-
-/* Arrow button */
-.splash-arrow {
-  width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
-  border: 1px solid var(--border); border-radius: 50%;
-  font-size: 18px; color: var(--text-dim); cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
-  flex-shrink: 0;
-}
-.splash-arrow:hover { border-color: var(--text); color: var(--text); }
 
 /* ===== Filters ===== */
 .gallery-section { max-width: var(--max-width); margin: 0 auto; padding: 80px 48px; }
