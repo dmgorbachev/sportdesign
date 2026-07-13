@@ -65,7 +65,8 @@ body {
 
 /* Stats in splash */
 .splash-stats {
-  display: flex; gap: 32px; text-align: center; padding-bottom: 48px;
+  display: flex; gap: 32px; text-align: center;
+  justify-content: center; padding: 32px 0;
 }
 .splash-stats .stat-num {
   font-size: 24px; font-weight: 700;
@@ -82,7 +83,7 @@ body {
   border: 1px solid var(--border); border-radius: 50%;
   font-size: 18px; color: var(--text-dim); cursor: pointer;
   transition: border-color 0.2s, color 0.2s;
-  flex-shrink: 0; padding-bottom: 48px;
+  flex-shrink: 0;
 }
 .splash-arrow:hover { border-color: var(--text); color: var(--text); }
 
