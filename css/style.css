@@ -78,11 +78,12 @@ body {
 .hero-stats {
   max-width: var(--max-width); margin: 0 auto;
   padding: 48px 48px;
-  display: flex; gap: 48px;
+  display: flex; gap: 48px; justify-content: center;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
 }
-.hero-stats .stat { text-align: left; }
+.hero-stats .stat { text-align: center; }
 .hero-stats .stat-num {
   font-size: 32px; font-weight: 700; line-height: 1;
   font-family: 'Unbounded', sans-serif;
