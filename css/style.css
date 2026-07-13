@@ -128,9 +128,7 @@ body {
 .gallery-empty { text-align: center; padding: 120px 20px; color: var(--text-dim); font-size: 13px; }
 
 /* ===== Timeline ===== */
-.timeline-section {
-  padding: 80px 48px; border-top: 1px solid var(--border);
-}
+.timeline-section { padding: 80px 48px; }
 .timeline { position: relative; }
 .timeline::before { content: ''; position: absolute; left: 4px; top: 0; bottom: 0; width: 1px; background: var(--border); }
 .tl-era { margin-bottom: 56px; padding-left: 32px; position: relative; }
