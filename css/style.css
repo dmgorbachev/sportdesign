@@ -137,7 +137,7 @@ body {
 
 /* ===== About ===== */
 .about-section { padding: 80px 48px; }
-.about-text { max-width: 560px; font-size: 13px; color: var(--text-dim); line-height: 1.8; }
+.about-text { max-width: 560px; font-size: 20px; color: #000; line-height: 1.6; text-align: center; margin: 0 auto; }
 .about-text p { margin-bottom: 10px; }
 .about-text a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
 .section-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.06em; }
