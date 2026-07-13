@@ -220,17 +220,20 @@ body {
 .modal-source { font-size: 11px; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid #eee; }
 
 /* Nav Arrows */
+.modal-wrap {
+  display: flex; align-items: center; gap: 24px;
+  max-width: calc(720px + 48px + 96px);
+  width: 100%;
+}
 .modal-nav {
-  position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
+  flex-shrink: 0;
   background: rgba(255,255,255,0.9); border: none; color: var(--text);
   font-size: 36px; cursor: pointer; opacity: 0.5;
   width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
   border-radius: 50%; transition: opacity 0.2s;
 }
 .modal-nav:hover { opacity: 0.9; }
-.modal-prev { left: 24px; }
-.modal-next { right: 24px; }
-@media (max-width: 900px) { .modal-nav { display: none; } }
+@media (max-width: 900px) { .modal-nav { display: none; } .modal-wrap { gap: 0; } }
 
 .hidden { display: none !important; }
 
