@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
   renderGallery(ARTWORKS);
   initModal();
   document.getElementById('hero-random').addEventListener('click', showRandomHero);
+  document.getElementById('hero-open-gallery').addEventListener('click', () => {
+    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+  });
 });
 
 // ===== State =====
@@ -45,7 +48,6 @@ function showRandomHero() {
   if (!withImages.length) return;
   const w = withImages[Math.floor(Math.random() * withImages.length)];
   document.getElementById('hero-image').src = w.image;
-  document.getElementById('hero-title').textContent = w.title + (w.titleAlt ? ' / ' + w.titleAlt : '');
   const meta = [];
   if (w.artist) meta.push(w.artist);
   if (w.year) meta.push(w.year);
