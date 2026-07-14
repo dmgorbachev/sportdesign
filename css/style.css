@@ -229,7 +229,6 @@ body {
   .viewer-image img { max-height: 65vh; }
   .viewer-info {
     flex: none; padding: 24px 20px 32px;
-    border-radius: 16px 16px 0 0;
   }
   .viewer-nav { display: none; }
   .viewer-close { top: 8px; right: 8px; width: 36px; height: 36px; font-size: 18px; }
