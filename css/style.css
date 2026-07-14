@@ -41,16 +41,18 @@ body {
   object-fit: contain; border-radius: 4px; position: relative; z-index: 2;
 }
 .splash-bg-images {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 24px; padding: 40px;
-  z-index: 1;
+  position: absolute; inset: 0; z-index: 1;
 }
 .splash-bg-images img {
-  max-width: 120px; max-height: 160px;
+  position: absolute;
+  max-width: 140px; max-height: 200px;
   object-fit: contain; border-radius: 4px;
-  opacity: 0.3;
+  opacity: 0.25;
 }
+.splash-bg-images img:nth-child(1) { top: 5%; left: 5%; }
+.splash-bg-images img:nth-child(2) { top: 5%; right: 5%; }
+.splash-bg-images img:nth-child(3) { bottom: 5%; left: 10%; }
+.splash-bg-images img:nth-child(4) { bottom: 5%; right: 10%; }
 .splash-bottom {
   display: flex; align-items: center; justify-content: space-between;
   padding-bottom: 16px;
