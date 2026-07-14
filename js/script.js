@@ -129,7 +129,6 @@ function renderTimeline(works) {
     if (!grouped[era]) return;
     const eraDiv = document.createElement('div'); eraDiv.className = 'tl-era';
     eraDiv.innerHTML = `
-      <div class="tl-era-label">${era}</div>
       <div class="tl-era-title">${getEraTitle(era)}</div>
       <div class="tl-era-items">
         ${grouped[era].sort((a,b) => (a.year||9999)-(b.year||9999)).map(w => `
