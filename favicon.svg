@@ -1,6 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <!-- K made of two lines: upper right + lower right, meeting at center -->
-  <line x1="10" y1="6" x2="10" y2="26" stroke="#000" stroke-width="4" stroke-linecap="square"/>
-  <line x1="10" y1="16" x2="24" y2="6" stroke="#000" stroke-width="3.5" stroke-linecap="square"/>
-  <line x1="10" y1="16" x2="24" y2="26" stroke="#000" stroke-width="3.5" stroke-linecap="square"/>
+  <style>
+    /* Light theme: black K on transparent */
+    @media (prefers-color-scheme: light) {
+      .k-line { stroke: #000; }
+    }
+    /* Dark theme: white K on transparent */
+    @media (prefers-color-scheme: dark) {
+      .k-line { stroke: #fff; }
+    }
+  </style>
+  <line class="k-line" x1="10" y1="6" x2="10" y2="26" stroke="#000" stroke-width="4" stroke-linecap="square"/>
+  <line class="k-line" x1="10" y1="16" x2="24" y2="6" stroke="#000" stroke-width="3.5" stroke-linecap="square"/>
+  <line class="k-line" x1="10" y1="16" x2="24" y2="26" stroke="#000" stroke-width="3.5" stroke-linecap="square"/>
 </svg>
