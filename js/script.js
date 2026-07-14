@@ -123,7 +123,7 @@ function renderTimeline(works) {
   const tl = document.getElementById('timeline');
   const grouped = {};
   works.forEach(w => { if (!w.era) return; if (!grouped[w.era]) grouped[w.era] = []; grouped[w.era].push(w); });
-  const order = ['1920–1940', '1940–1960', '1960–1980', '1980–2000', 'Без даты'];
+  const order = ['1920–1940', '1940–1960', '1960–1980', '1980–2000', '2000–2020', 'Без даты'];
   tl.innerHTML = '';
   order.forEach(era => {
     if (!grouped[era]) return;
@@ -149,7 +149,7 @@ function renderTimeline(works) {
 }
 
 function getEraTitle(era) {
-  const map = { '1920–1940': 'Авангард и конструктивизм', '1940–1960': 'Соцреализм и монументализм', '1960–1980': 'Оттепель и новый визуальный язык', '1980–2000': 'Поздний советский период' };
+  const map = { '1920–1940': 'Авангард и конструктивизм', '1940–1960': 'Соцреализм и монументализм', '1960–1980': 'Оттепель и новый визуальный язык', '1980–2000': 'Поздний советский период', '2000–2020': 'Современный российский дизайн' };
   return map[era] || '';
 }
 
