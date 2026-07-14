@@ -133,13 +133,15 @@ body {
 .tl-era { margin-bottom: 48px; }
 .tl-era-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 6px; }
 .tl-era-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
-.tl-era-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-.tl-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; cursor: pointer; transition: opacity 0.2s; }
+.tl-era-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tl-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; cursor: pointer; transition: opacity 0.2s; min-width: 0; }
 .tl-item:hover { opacity: 0.7; }
 .tl-item-thumb { width: 72px; height: 72px; object-fit: cover; background: #f0f0f0; border-radius: 8px; flex-shrink: 0; }
-.tl-item-info { flex: 1; min-width: 0; }
-.tl-item-title { font-size: 20px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.tl-item-year { font-size: 16px; color: var(--text-dim); }
+.tl-item-info { flex: 1; min-width: 0; overflow: hidden; }
+.tl-item-title { font-size: 16px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl-item-year { font-size: 14px; color: var(--text-dim); }
+
+.timeline-section { overflow: hidden; }
 
 @media (max-width: 768px) {
   .tl-era-items { grid-template-columns: repeat(2, 1fr); }
