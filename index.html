@@ -76,20 +76,20 @@
     </div>
   </footer>
 
-  <div class="modal-overlay hidden" id="modal">
-    <div class="modal-wrap">
-      <button class="modal-nav modal-prev" id="modal-prev">‹</button>
-      <div class="modal">
-        <button class="modal-close" id="modal-close">×</button>
-        <img id="modal-image" src="" alt="">
-        <div class="modal-info">
-          <h2 id="modal-title"></h2>
-          <div class="modal-meta" id="modal-meta"></div>
-          <div class="modal-desc" id="modal-desc"></div>
-          <a class="modal-source hidden" id="modal-source" href="#" target="_blank">Источник →</a>
-        </div>
+  <div class="viewer-overlay hidden" id="viewer">
+    <button class="viewer-close" id="viewer-close">×</button>
+    <button class="viewer-nav viewer-prev" id="viewer-prev">‹</button>
+    <button class="viewer-nav viewer-next" id="viewer-next">›</button>
+    <div class="viewer-layout">
+      <div class="viewer-image">
+        <img id="viewer-image" src="" alt="">
       </div>
-      <button class="modal-nav modal-next" id="modal-next">›</button>
+      <div class="viewer-info">
+        <h2 id="viewer-title"></h2>
+        <div class="viewer-meta" id="viewer-meta"></div>
+        <p class="viewer-desc" id="viewer-desc"></p>
+        <a class="viewer-source hidden" id="viewer-source" href="#" target="_blank">Источник →</a>
+      </div>
     </div>
   </div>
 

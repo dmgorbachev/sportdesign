@@ -7,12 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
   renderGallery(ARTWORKS);
   renderTimeline(ARTWORKS.filter(w => w.image));
   renderStats();
-  initModal();
+  initViewer();
 });
 
 // ===== State =====
 let activeType = '';
 let currentSplashWork = null;
+let viewerWorks = [];
+let viewerIndex = 0;
+let touchStartX = 0;
+let touchStartY = 0;
 
 // ===== Stats =====
 function renderStats() {
@@ -38,13 +42,11 @@ function initSplash() {
   currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
   document.getElementById('splash-image').src = currentSplashWork.image;
 
-  // Click on image → scroll to about section + open modal
   document.getElementById('splash-image').addEventListener('click', () => {
     document.getElementById('about-top').scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => openModal(currentSplashWork), 600);
+    setTimeout(() => openViewer(currentSplashWork), 600);
   });
 
-  // Arrow button → scroll to about section
   document.getElementById('splash-arrow').addEventListener('click', () => {
     document.getElementById('about-top').scrollIntoView({ behavior: 'smooth' });
   });
@@ -107,21 +109,14 @@ function renderGallery(works) {
     const card = document.createElement('div'); card.className = 'card';
     const img = document.createElement('img'); img.src = w.image; img.alt = w.title; img.loading = 'lazy';
     card.appendChild(img);
-    card.addEventListener('click', () => openModal(w));
+    card.addEventListener('click', () => openViewer(w));
     grid.appendChild(card);
   });
 }
 
-// ===== Modal =====
-let modalWorks = [];
-let modalIndex = 0;
-let touchStartX = 0;
-let touchStartY = 0;
-
 // ===== Timeline =====
 function renderTimeline(works) {
   const tl = document.getElementById('timeline');
-  // Insert title before timeline div
   const section = tl.closest('.timeline-section');
   let title = section.querySelector('.section-title');
   if (!title) {
@@ -153,7 +148,7 @@ function renderTimeline(works) {
   tl.querySelectorAll('.tl-item').forEach(el => {
     el.addEventListener('click', () => {
       const w = works.find(x => x.id === parseInt(el.dataset.id));
-      if (w) openModal(w);
+      if (w) openViewer(w);
     });
   });
 }
@@ -163,42 +158,42 @@ function getEraTitle(era) {
   return map[era] || '';
 }
 
-// ===== Modal =====
-function initModal() {
-  document.getElementById('modal-close').addEventListener('click', closeModal);
-  document.getElementById('modal').addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
-  document.getElementById('modal-prev').addEventListener('click', () => navigateModal(-1));
-  document.getElementById('modal-next').addEventListener('click', () => navigateModal(1));
+// ===== Viewer =====
+function initViewer() {
+  document.getElementById('viewer-close').addEventListener('click', closeViewer);
+  document.getElementById('viewer').addEventListener('click', e => { if (e.target === document.getElementById('viewer')) closeViewer(); });
+  document.getElementById('viewer-prev').addEventListener('click', () => navigateViewer(-1));
+  document.getElementById('viewer-next').addEventListener('click', () => navigateViewer(1));
   document.addEventListener('keydown', e => {
-    if (document.getElementById('modal').classList.contains('hidden')) return;
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowLeft') navigateModal(-1);
-    if (e.key === 'ArrowRight') navigateModal(1);
+    if (document.getElementById('viewer').classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeViewer();
+    if (e.key === 'ArrowLeft') navigateViewer(-1);
+    if (e.key === 'ArrowRight') navigateViewer(1);
   });
-  const modalOverlayEl = document.getElementById('modal');
-  modalOverlayEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }, { passive: true });
-  modalOverlayEl.addEventListener('touchend', e => {
+  const viewerEl = document.getElementById('viewer');
+  viewerEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }, { passive: true });
+  viewerEl.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchStartX;
     const dy = e.changedTouches[0].clientY - touchStartY;
-    if (dy > 80 && Math.abs(dy) > Math.abs(dx)) { closeModal(); return; }
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) navigateModal(dx > 0 ? -1 : 1);
+    if (dy > 80 && Math.abs(dy) > Math.abs(dx)) { closeViewer(); return; }
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) navigateViewer(dx > 0 ? -1 : 1);
   });
 }
 
-function navigateModal(dir) {
-  const newIdx = modalIndex + dir;
-  if (newIdx < 0 || newIdx >= modalWorks.length) return;
-  modalIndex = newIdx;
-  updateModalContent(modalWorks[modalIndex]);
+function navigateViewer(dir) {
+  const newIdx = viewerIndex + dir;
+  if (newIdx < 0 || newIdx >= viewerWorks.length) return;
+  viewerIndex = newIdx;
+  updateViewerContent(viewerWorks[viewerIndex]);
 }
 
-function openModal(w) {
+function openViewer(w) {
   const visible = getVisibleWorks();
-  modalWorks = visible;
-  modalIndex = visible.findIndex(v => v.id === w.id);
-  if (modalIndex === -1) modalIndex = 0;
-  updateModalContent(visible[modalIndex]);
-  document.getElementById('modal').classList.remove('hidden');
+  viewerWorks = visible;
+  viewerIndex = visible.findIndex(v => v.id === w.id);
+  if (viewerIndex === -1) viewerIndex = 0;
+  updateViewerContent(visible[viewerIndex]);
+  document.getElementById('viewer').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
 }
 
@@ -212,19 +207,23 @@ function getVisibleWorks() {
   });
 }
 
-function updateModalContent(w) {
-  document.getElementById('modal-image').src = w.image || '';
-  document.getElementById('modal-title').textContent = w.title + (w.titleAlt ? ' / ' + w.titleAlt : '');
+function updateViewerContent(w) {
+  document.getElementById('viewer-image').src = w.image || '';
+  document.getElementById('viewer-title').textContent = w.title + (w.titleAlt ? ' / ' + w.titleAlt : '');
   const meta = [];
   if (w.artist) meta.push(w.artist);
   if (w.year) meta.push(w.year);
   if (w.technique) meta.push(w.technique);
   if (w.museum) meta.push(w.museum);
-  document.getElementById('modal-meta').innerHTML = meta.join(' · ') + ' <span class="chip">' + w.type + '</span> <span class="chip">' + w.sport + '</span>';
-  document.getElementById('modal-desc').textContent = w.description || '';
-  const src = document.getElementById('modal-source');
+  document.getElementById('viewer-meta').innerHTML = meta.join(' · ') + ' <span class="chip">' + w.type + '</span> <span class="chip">' + w.sport + '</span>';
+  document.getElementById('viewer-desc').textContent = w.description || '';
+  const src = document.getElementById('viewer-source');
   if (w.source) { src.href = w.source; src.classList.remove('hidden'); } else { src.classList.add('hidden'); }
 }
 
-function closeModal() { document.getElementById('modal').classList.add('hidden'); document.body.style.overflow = ''; }
+function closeViewer() {
+  document.getElementById('viewer').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
 function debounce(fn, ms) { let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); }; }
