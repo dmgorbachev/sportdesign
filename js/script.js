@@ -1,4 +1,4 @@
-// КОДЕКС — Gallery Engine
+// СПОРТИВ — Gallery Engine
 
 document.addEventListener('DOMContentLoaded', () => {
   initChips();
