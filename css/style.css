@@ -39,6 +39,7 @@ body {
 .splash-center img {
   max-width: 60%; max-height: 55vh;
   object-fit: contain; border-radius: 4px; position: relative; z-index: 2;
+  cursor: pointer;
 }
 .splash-bg-images {
   position: absolute; inset: 0; z-index: 1;
@@ -47,8 +48,10 @@ body {
   position: absolute;
   max-width: 140px; max-height: 200px;
   object-fit: contain; border-radius: 4px;
-  opacity: 0.25;
+  opacity: 0.25; cursor: pointer;
+  transition: opacity 0.3s;
 }
+.splash-bg-images img:hover { opacity: 1; }
 .splash-bg-images img:nth-child(1) { top: 5%; left: 5%; }
 .splash-bg-images img:nth-child(2) { top: 5%; right: 5%; }
 .splash-bg-images img:nth-child(3) { bottom: 5%; left: 10%; }
