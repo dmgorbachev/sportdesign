@@ -133,7 +133,7 @@ body {
 .tl-era { margin-bottom: 48px; }
 .tl-era-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 6px; }
 .tl-era-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
-.tl-era-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px; }
+.tl-era-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .tl-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; cursor: pointer; transition: opacity 0.2s; }
 .tl-item:hover { opacity: 0.7; }
 .tl-item-thumb { width: 72px; height: 72px; object-fit: cover; background: #f0f0f0; border-radius: 8px; }
@@ -161,6 +161,7 @@ body {
 }
 .about-text a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
 .section-title { font-size: 20px; font-weight: 600; color: #000; margin-bottom: 32px; text-transform: uppercase; letter-spacing: 0.06em; }
+.timeline-section .section-title { display: block; }
 
 /* ===== Footer ===== */
 .footer { padding: 28px 48px; font-size: 11px; color: #ddd; border-top: 1px solid var(--border); }
