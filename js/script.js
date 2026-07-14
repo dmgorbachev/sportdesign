@@ -121,6 +121,16 @@ let touchStartY = 0;
 // ===== Timeline =====
 function renderTimeline(works) {
   const tl = document.getElementById('timeline');
+  // Insert title before timeline div
+  const section = tl.closest('.timeline-section');
+  let title = section.querySelector('.section-title');
+  if (!title) {
+    title = document.createElement('h2');
+    title.className = 'section-title';
+    title.textContent = 'Таймлайн';
+    tl.parentNode.insertBefore(title, tl);
+  }
+  
   const grouped = {};
   works.forEach(w => { if (!w.era) return; if (!grouped[w.era]) grouped[w.era] = []; grouped[w.era].push(w); });
   const order = ['1920–1940', '1940–1960', '1960–1980', '1980–2000', '2000–2020', 'Без даты'];
