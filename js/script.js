@@ -42,6 +42,12 @@ function initSplash() {
   currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
   document.getElementById('splash-image').src = currentSplashWork.image;
 
+  // Background images — 4 random works (excluding main)
+  const bgContainer = document.getElementById('splash-bg-images');
+  const others = withImages.filter(w => w.id !== currentSplashWork.id);
+  const randomOthers = others.sort(() => Math.random() - 0.5).slice(0, 4);
+  bgContainer.innerHTML = randomOthers.map(w => `<img src="${w.image}" alt="" loading="lazy">`).join('');
+
   document.getElementById('splash-image').addEventListener('click', () => {
     document.getElementById('about-top').scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => openViewer(currentSplashWork), 600);

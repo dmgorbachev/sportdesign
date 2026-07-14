@@ -34,11 +34,22 @@ body {
 }
 .splash-center {
   flex: 1; display: flex; align-items: center; justify-content: center;
-  padding: 32px 0;
+  padding: 32px 0; position: relative;
 }
 .splash-center img {
   max-width: 60%; max-height: 55vh;
+  object-fit: contain; border-radius: 4px; position: relative; z-index: 2;
+}
+.splash-bg-images {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 24px; padding: 40px;
+  z-index: 1;
+}
+.splash-bg-images img {
+  max-width: 120px; max-height: 160px;
   object-fit: contain; border-radius: 4px;
+  opacity: 0.3;
 }
 .splash-bottom {
   display: flex; align-items: center; justify-content: space-between;
