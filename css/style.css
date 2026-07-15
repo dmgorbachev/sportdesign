@@ -287,6 +287,12 @@ body {
   .splash-stats .stat-num { font-size: 18px; }
   .splash-arrow { display: none; }
   .splash-bg-images { display: none; }
+  .splash-center { padding: 16px 0; }
+  .splash-center img { max-width: 90%; max-height: 35vh; }
+  .splash-artwork { padding: 8px 0 0; }
+  .splash-artwork-title { font-size: 14px; }
+  .splash-artwork-author { font-size: 12px; }
+  .splash-bottom { padding-bottom: 8px; }
   .splash-bg-images img { max-width: 70px; max-height: 100px; }
   .splash-bg-images img:nth-child(1) { top: 2%; left: 5%; }
   .splash-bg-images img:nth-child(2) { top: auto; bottom: 2%; left: 50%; transform: translateX(-50%); }
