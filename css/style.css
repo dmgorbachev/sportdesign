@@ -69,13 +69,21 @@ body {
 }
 #splash-random-btn {
   background: var(--text); color: #fff; border: none;
-  padding: 10px 24px; font-size: 12px; font-family: var(--font);
+  font-size: 12px; font-family: var(--font);
   text-transform: uppercase; letter-spacing: 0.06em;
   cursor: pointer; border-radius: 4px;
 }
 #splash-random-btn:hover { opacity: 0.85; }
 
-.about-credits {
+.splash-credits {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 0 8px;
+}
+.splash-credit-left { font-size: 14px; color: #000; }
+.splash-credit-right { font-size: 14px; color: var(--text-dim); }
+.credit-link { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--text); }
+
+.splash-arrow {
   font-size: 14px; color: var(--text-dim); margin: 12px 0;
 }
 .about-credits a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--text); }
