@@ -1,4 +1,4 @@
-// СЛЕД — Gallery Engine
+// СБОРНИК — Gallery Engine
 
 document.addEventListener('DOMContentLoaded', () => {
   initChips();
@@ -41,6 +41,8 @@ function initSplash() {
   if (!withImages.length) return;
   currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
   document.getElementById('splash-image').src = currentSplashWork.image;
+  document.getElementById('splash-artwork-title').textContent = currentSplashWork.title;
+  document.getElementById('splash-artwork-author').textContent = currentSplashWork.artist || '';
 
   // Background images — 4 random works (excluding main)
   const bgContainer = document.getElementById('splash-bg-images');
@@ -55,6 +57,13 @@ function initSplash() {
 
   document.getElementById('splash-arrow').addEventListener('click', () => {
     document.getElementById('about-top').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('splash-random-btn').addEventListener('click', () => {
+    currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
+    document.getElementById('splash-image').src = currentSplashWork.image;
+    document.getElementById('splash-artwork-title').textContent = currentSplashWork.title;
+    document.getElementById('splash-artwork-author').textContent = currentSplashWork.artist || '';
   });
 }
 

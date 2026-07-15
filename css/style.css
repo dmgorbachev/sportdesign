@@ -1,4 +1,4 @@
-/* ===== СЛЕД ===== */
+/* ===== СБОРНИК ===== */
 
 :root {
   --bg: #fafafa;
@@ -65,6 +65,17 @@ body {
 .splash-left { font-size: 18px; color: #000; }
 .splash-right { font-size: 14px; color: var(--text-dim); text-align: right; }
 .credit-link { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--text); }
+
+.splash-artwork { text-align: center; padding: 24px 0 0; }
+#splash-artwork-title { font-size: 16px; font-weight: 600; color: #000; }
+#splash-artwork-author { font-size: 13px; color: var(--text-dim); margin: 4px 0 16px; }
+#splash-random-btn {
+  background: var(--text); color: #fff; border: none;
+  padding: 10px 24px; font-size: 12px; font-family: var(--font);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  cursor: pointer; border-radius: 4px;
+}
+#splash-random-btn:hover { opacity: 0.85; }
 
 .splash-arrow {
   font-size: 14px; color: var(--text-dim); margin: 12px 0;
@@ -272,6 +283,7 @@ body {
   .splash-stats { gap: 20px; }
   .splash-stats .stat-num { font-size: 18px; }
   .splash-arrow { display: none; }
+  .splash-bg-images { display: none; }
   .splash-bg-images img { max-width: 70px; max-height: 100px; }
   .splash-bg-images img:nth-child(1) { top: 2%; left: 5%; }
   .splash-bg-images img:nth-child(2) { top: auto; bottom: 2%; left: 50%; transform: translateX(-50%); }
