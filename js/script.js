@@ -40,7 +40,7 @@ function initSplash() {
   const withImages = ARTWORKS.filter(w => w.image && w.era !== '2000–2020');
   if (!withImages.length) return;
   currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
-  document.getElementById('splash-image').src = currentSplashWork.image;
+  updateSplashContent(currentSplashWork);
 
   // Background images — 4 random works (excluding main)
   const bgContainer = document.getElementById('splash-bg-images');
@@ -53,9 +53,20 @@ function initSplash() {
     setTimeout(() => openViewer(currentSplashWork), 600);
   });
 
+  document.getElementById('splash-random-btn').addEventListener('click', () => {
+    currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
+    updateSplashContent(currentSplashWork);
+  });
+
   document.getElementById('splash-arrow').addEventListener('click', () => {
     document.getElementById('about-top').scrollIntoView({ behavior: 'smooth' });
   });
+}
+
+function updateSplashContent(w) {
+  document.getElementById('splash-image').src = w.image;
+  document.getElementById('splash-artwork-title').textContent = w.title;
+  document.getElementById('splash-artwork-author').textContent = w.artist || '';
 }
 
 // ===== Filter Chips =====
