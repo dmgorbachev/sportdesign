@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dmgorbachev.github.io/sportdesign/sitemap.xml
