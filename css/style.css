@@ -58,29 +58,12 @@ body {
 .splash-bg-images img:nth-child(2) { top: 5%; right: 5%; }
 .splash-bg-images img:nth-child(3) { bottom: 5%; left: 10%; }
 .splash-bg-images img:nth-child(4) { bottom: 5%; right: 10%; }
-.splash-info {
-  text-align: center; padding: 0 0 24px;
+.splash-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 16px;
 }
-#splash-artwork-title {
-  font-size: 16px; font-weight: 600; color: #000;
-}
-#splash-artwork-author {
-  font-size: 13px; color: var(--text-dim); margin: 4px 0 16px;
-}
-#splash-random-btn {
-  background: var(--text); color: #fff; border: none;
-  font-size: 12px; font-family: var(--font);
-  text-transform: uppercase; letter-spacing: 0.06em;
-  cursor: pointer; border-radius: 4px;
-}
-#splash-random-btn:hover { opacity: 0.85; }
-
-.splash-credits {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0 0 8px;
-}
-.splash-credit-left { font-size: 14px; color: #000; }
-.splash-credit-right { font-size: 14px; color: var(--text-dim); }
+.splash-left { font-size: 18px; color: #000; }
+.splash-right { font-size: 14px; color: var(--text-dim); text-align: right; }
 .credit-link { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--text); }
 
 .splash-arrow {
