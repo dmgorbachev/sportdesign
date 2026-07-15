@@ -273,7 +273,7 @@ body {
   .splash-arrow { display: none; }
   .splash-bg-images img { max-width: 70px; max-height: 100px; }
   .splash-bg-images img:nth-child(1) { top: 2%; left: 5%; }
-  .splash-bg-images img:nth-child(2) { top: 2%; right: 5%; }
+  .splash-bg-images img:nth-child(2) { top: auto; bottom: 2%; left: 50%; transform: translateX(-50%); }
   .splash-bg-images img:nth-child(3) { display: none; }
   .splash-bg-images img:nth-child(4) { display: none; }
   .gallery-section, .timeline-section, .about-section, .footer { padding-left: 20px; padding-right: 20px; }
