@@ -37,7 +37,7 @@ function renderStats() {
 
 // ===== Splash =====
 function initSplash() {
-  const withImages = ARTWORKS.filter(w => w.image);
+  const withImages = ARTWORKS.filter(w => w.image && w.era !== '2000–2020');
   if (!withImages.length) return;
   currentSplashWork = withImages[Math.floor(Math.random() * withImages.length)];
   document.getElementById('splash-image').src = currentSplashWork.image;
