@@ -62,7 +62,7 @@ body {
   display: flex; align-items: center; justify-content: space-between;
   padding-bottom: 16px;
 }
-.splash-left { font-size: 18px; color: #000; }
+.splash-left { font-size: 14px; color: #000; }
 .splash-right { font-size: 14px; color: var(--text-dim); text-align: right; display: flex; align-items: center; gap: 12px; }
 .splash-right-text { display: flex; flex-direction: column; }
 .splash-author { color: var(--text); font-weight: 500; }
