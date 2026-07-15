@@ -1,4 +1,4 @@
-// СПОРТИВ — Gallery Engine
+// СЛЕД — Gallery Engine
 
 document.addEventListener('DOMContentLoaded', () => {
   initChips();

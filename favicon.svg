@@ -7,8 +7,9 @@
       .line { stroke: #fff; }
     }
   </style>
-  <!-- C — arc of the letter -->
-  <path class="line" d="M24 10 Q24 6 18 6 Q10 6 10 16 Q10 26 18 26 Q24 26 24 22" fill="none" stroke="#000" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- Arc trajectory — motion line -->
-  <path class="line" d="M6 8 Q26 4 28 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"/>
+  <!-- Abstract footprint / trace — three dots + arc -->
+  <ellipse class="line" cx="8" cy="18" rx="4" ry="3" fill="none" stroke="#000" stroke-width="2"/>
+  <ellipse class="line" cx="16" cy="10" rx="4" ry="3" fill="none" stroke="#000" stroke-width="2"/>
+  <ellipse class="line" cx="24" cy="6" rx="3" ry="2.5" fill="none" stroke="#000" stroke-width="2"/>
+  <path class="line" d="M6 22 Q24 4 28 18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-dasharray="4,4"/>
 </svg>
