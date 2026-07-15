@@ -63,8 +63,11 @@ body {
   padding-bottom: 16px;
 }
 .splash-left { font-size: 18px; color: #000; }
-.splash-right { font-size: 14px; color: var(--text-dim); text-align: right; }
-.credit-link { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--text); }
+.splash-right { font-size: 14px; color: var(--text-dim); text-align: right; display: flex; align-items: center; gap: 12px; }
+.splash-right-text { display: flex; flex-direction: column; }
+.splash-author { color: var(--text); font-weight: 500; }
+.splash-author-link { text-decoration: none; color: inherit; border-bottom: 1px solid var(--text); }
+.splash-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 
 .splash-artwork { text-align: center; padding: 24px 0 0; }
 #splash-artwork-title { font-size: 16px; font-weight: 600; color: #000; }
