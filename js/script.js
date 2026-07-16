@@ -48,7 +48,16 @@ function initSplash() {
   const bgContainer = document.getElementById('splash-bg-images');
   const others = withImages.filter(w => w.id !== currentSplashWork.id);
   const randomOthers = others.sort(() => Math.random() - 0.5).slice(0, 4);
-  bgContainer.innerHTML = randomOthers.map(w => `<img src="${w.image}" alt="" loading="lazy">`).join('');
+  bgContainer.innerHTML = randomOthers.map(w => `<img src="${w.image}" alt="${w.title}" loading="lazy" data-id="${w.id}">`).join('');
+
+  // Click on background images opens viewer
+  bgContainer.querySelectorAll('img').forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const w = ARTWORKS.find(x => x.id === parseInt(img.dataset.id));
+      if (w) openViewer(w);
+    });
+  });
 
   document.getElementById('splash-image').addEventListener('click', () => {
     document.getElementById('about-top').scrollIntoView({ behavior: 'smooth' });
