@@ -77,6 +77,8 @@ body {
   padding: 10px 24px; font-size: 12px; font-family: var(--font);
   text-transform: uppercase; letter-spacing: 0.06em;
   cursor: pointer; border-radius: 4px;
+  position: relative; z-index: 10;
+  margin-top: 8px;
 }
 #splash-random-btn:hover { opacity: 0.85; }
 
