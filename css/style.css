@@ -270,7 +270,7 @@ body {
 }
 
 /* ===== Section Inner ===== */
-.section-inner { max-width: var(--max-width); margin: 0 auto; }
+.section-inner { margin: 0 auto; }
 
 .hidden { display: none !important; }
 
