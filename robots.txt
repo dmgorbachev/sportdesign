@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://dmgorbachev.github.io/sportdesign/sitemap.xml
+Sitemap: https://sbornikart.ru/sitemap.xml
+Host: sbornikart.ru
