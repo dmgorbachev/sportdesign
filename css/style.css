@@ -259,8 +259,8 @@ body {
 
 /* Mobile: image full-screen, info strip at bottom */
 @media (max-width: 900px) {
-  .viewer-layout { flex-direction: column; }
-  .viewer-image { flex: 1; padding: 0; background: #fff; }
+  .viewer-layout { flex-direction: column; height: auto; max-height: 100%; }
+  .viewer-image { flex: 1; padding: 0; background: transparent; }
   .viewer-image img { max-height: 65vh; }
   .viewer-info {
     flex: none; padding: 24px 20px 32px;
