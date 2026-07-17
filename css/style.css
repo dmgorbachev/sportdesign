@@ -37,7 +37,7 @@ body {
   padding: 32px 0; position: relative;
 }
 .splash-center img {
-  max-width: 60%; max-height: 55vh;
+  max-width: 55%; max-height: 40vh;
   object-fit: contain; border-radius: 4px; position: relative; z-index: 2;
   cursor: pointer;
   transition: transform 0.4s, opacity 0.3s;
