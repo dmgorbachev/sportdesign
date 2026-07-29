@@ -631,7 +631,7 @@ const ARTWORKS = [
   }
 
   {
-    id: 35,
+    id: 47,
     title: "На воротах Джейсон",
     titleAlt: "Jason in Goal / World Full of Striving, Will, and Romance",
     artist: "Михаил Доляновский",
@@ -647,7 +647,7 @@ const ARTWORKS = [
     tags: ["живопись", "современное искусство", "футбол", "вратарь"]
   },
   {
-    id: 36,
+    id: 48,
     title: "Аут",
     titleAlt: "Out",
     artist: "Сергей Гета",
@@ -663,7 +663,7 @@ const ARTWORKS = [
     tags: ["живопись", "современное искусство", "футбол"]
   },
   {
-    id: 37,
+    id: 49,
     title: "Отлично!",
     titleAlt: "Excellent!",
     artist: "Дмитрий Гутов",
@@ -679,7 +679,7 @@ const ARTWORKS = [
     tags: ["живопись", "современное искусство", "футбол", "текст"]
   },
   {
-    id: 38,
+    id: 50,
     title: "Без названия",
     titleAlt: "Untitled",
     artist: "LARKANDRE",
@@ -695,7 +695,7 @@ const ARTWORKS = [
     tags: ["живопись", "стрит-арт", "современное искусство", "футбол"]
   },
   {
-    id: 39,
+    id: 51,
     title: "Нужен гол!",
     titleAlt: "Need a Goal!",
     artist: "Vova Nootk",
@@ -711,7 +711,7 @@ const ARTWORKS = [
     tags: ["живопись", "поп-арт", "современное искусство", "футбол"]
   },
   {
-    id: 40,
+    id: 52,
     title: "Шайбу, шайбу!",
     titleAlt: "Shoot the Puck!",
     artist: "Vova Nootk",
@@ -727,7 +727,7 @@ const ARTWORKS = [
     tags: ["живопись", "поп-арт", "современное искусство", "хоккей"]
   },
   {
-    id: 41,
+    id: 53,
     title: "Судьи",
     titleAlt: "Referees",
     artist: "Иван Разумов",
@@ -743,7 +743,7 @@ const ARTWORKS = [
     tags: ["живопись", "современное искусство", "футбол", "судьи"]
   },
   {
-    id: 42,
+    id: 54,
     title: "Вратарь",
     titleAlt: "Goalkeeper",
     artist: "Коля Садовник",
@@ -759,7 +759,7 @@ const ARTWORKS = [
     tags: ["живопись", "современное искусство", "футбол", "баннер"]
   },
   {
-    id: 43,
+    id: 55,
     title: "Красная машина",
     titleAlt: "Red Machine",
     artist: "Мария Сафронова",
@@ -775,7 +775,7 @@ const ARTWORKS = [
     tags: ["живопись", "современное искусство", "хоккей", "СССР"]
   },
   {
-    id: 44,
+    id: 56,
     title: "Поэт и футболист",
     titleAlt: "The Poet and the Footballer",
     artist: "Инал Савченков",
@@ -791,7 +791,7 @@ const ARTWORKS = [
     tags: ["живопись", "современное искусство", "футбол", "метафора"]
   },
   {
-    id: 45,
+    id: 57,
     title: "Вести с полей",
     titleAlt: "News from the Fields",
     artist: "Константин Звездочётов",
@@ -807,7 +807,7 @@ const ARTWORKS = [
     tags: ["живопись", "концептуализм", "современное искусство", "футбол"]
   },
   {
-    id: 46,
+    id: 58,
     title: "Три спортивных тотема",
     titleAlt: "Three Sports Totems",
     artist: "Борис Орлов",
